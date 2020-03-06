@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>
+<body>
+<script>
+function makeLowercase() {
+document.form1.outstring.value = document.form1.instring.value.toLowerCase();}
+function makeUppercase() {
+document.form1.outstring.value = document.form1.instring.value.toUpperCase();}
+String.prototype.capitalize = function(){
+   return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
+  };
+function capWords() {
+var inputString = document.form1.instring; 
+var outputString = document.form1.outstring; 
+outputString.value = inputString.value.capitalize();
+}
+</script>
+
+<center>
+<h1>Convertidor de texto en mayúsculas, minúsculas y primera letra mayuscula</h1>
+
+</center>
+<form name="form1" method="post">
+
+<center>
+<input name="instring" type="text" value="escribe aqui la frase" size="30">
+<input type="button" name="Convert" value="Convertidor Minúsculas" onClick="makeLowercase();">
+<input type="button" name="Convert" value="Convertidor Mayúsculas" onClick="makeUppercase();">
+<input type="button" name="Capitalize" value="Convertidor primera Mayuscula" onClick="capWords();">
+<input name="outstring" type="text" value="" size="30">
+</center>
+</form>
+</body>
+</html> 
